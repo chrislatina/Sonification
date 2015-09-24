@@ -16,6 +16,10 @@ Number of Moons - highpitched textural / granular Dust / Impulse
 Uranus : Rotation on its axis?? Envelope
 (make reverses sounding envelope using long attack)
 
+Weather + Geological events (volcanos) -- used as differentiator for comprehension -- these can be samples or their own presentation. Use the existing tools for weather sonificaiton.
+
+Rings (Saturn) -- harmonic tones, stacked fifths. Planet pulses with time of day, ring sounds are sine waves, slightly detuned to represent phase / rotation of sort, nice warm analog-esque sounds.
+
 */
 
 //Are these perceived very differently?
@@ -23,3 +27,14 @@ Uranus : Rotation on its axis?? Envelope
 {SinOsc.ar([441,220])}.play;
 
 s.scope;
+
+/* Points to write about
+
+The general model of representing a planet.
+IE:
+
+Spatial Rotation(Amplitude modulation for tempo (size -> pitch -> waveshape -> envelope to represent rotation (clockwise or counter) + weather/moon/rings))
+
+Evaluate this model.
+
+*/
