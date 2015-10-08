@@ -44,6 +44,7 @@ SynthDef(\tri, {|freq = 50, duration = 100, doneAction = 2, atk = 5, sus = 8, re
 }).add;
 )
 
+s.scope;
 
 x = Synth.new(\tri,[\freq,160,\duration,80,\doneAction,0]);
 y = Synth.new(\tri,[\freq,100,\duration,80]);
@@ -66,3 +67,16 @@ SynthDef(\saturn, { arg moons = 52, freq = 220;
 )
 
 a = Synth(\saturn);
+
+
+//Resonant Membrane
+(
+{ var excitation = EnvGen.kr(Env.perc,
+                            MouseButton.kr(0, 1, 0),
+                             timeScale: 0.1, doneAction: 0
+                            ) * PinkNoise.ar(0.4);
+  var tension = MouseX.kr(0.01, 0.1);
+  var loss = MouseY.kr(1.0, 0.9999999, 1);
+  MembraneHexagon.ar(excitation, tension, loss);
+}.play;
+)

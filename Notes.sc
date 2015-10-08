@@ -28,6 +28,9 @@ Rings (Saturn) -- harmonic tones, stacked fifths. Planet pulses with time of day
 
 s.scope;
 
+
+/* Sonify Gravity for bouncing ball*/
+
 /* Points to write about
 
 The general model of representing a planet.
@@ -36,5 +39,14 @@ IE:
 Spatial Rotation(Amplitude modulation for tempo (size -> pitch -> waveshape -> envelope to represent rotation (clockwise or counter) + weather/moon/rings))
 
 Evaluate this model.
+
+
+Avaluate whether audio vs. audio-visual is successful. Make sure to do voice over so the package is complete.
+*/
+
+
+/* Future ideas
+
+table interface with rotations -- can turn on volume for each planet, then zoom in and show additional info about the planet and a "portrait-style" audio clip to represent those details.
 
 */
