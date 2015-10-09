@@ -6,6 +6,8 @@ b = a.loadToBuffer;
 )
 
 
+/** Need to account for initial phase (starting year alignment?) **/
+
 (
 //Mercury's diameter is 3032 = 7918/3032 * 440 = 1149.05013193 Hz
 //Full rotation (year) at 88 seconds
@@ -17,9 +19,8 @@ b = a.loadToBuffer;
 
 	VBAP.ar(4, source, b.bufnum, LFSaw.kr(1/88, 0).range(-180, 180), ele, spr);
 }.scope;
-)
 
-(
+
 // Venus is 7521 = 7918/7521 * 440 = 463.22563488898 Hz
 //Full rotation (year) at 225 seconds
 // One impulse per 243 earth days = (5832/24 hrs)
@@ -30,9 +31,7 @@ b = a.loadToBuffer;
 
 	VBAP.ar(4, source, b.bufnum, LFSaw.kr(1/225, 0).range(-180, 180), ele, spr);
 }.scope;
-)
 
-(
 //Earth's diameter is 7918 =  A4(440) (reference)
 //Full rotation (year) at 365 seconds
 // One impulse per 24/24.65 days
@@ -44,9 +43,7 @@ b = a.loadToBuffer;
 
 	VBAP.ar(4, source, b.bufnum, LFSaw.kr(1/365, 0).range(-180, 180), ele, spr);
 }.scope;
-)
 
-(
 // Mars is 1/2 earth = 2 * 440 = 880 Hz
 //Full rotation (year) at 686.971 seconds
 
@@ -59,9 +56,7 @@ b = a.loadToBuffer;
 
 	VBAP.ar(4, source, b.bufnum, LFSaw.kr(1/686.971, 0).range(-180, 180), ele, spr);
 }.scope;
-)
 
-(
 //Jupter's diameter is 86881 = 7918/86881 * 440 = 40.099906769 Hz
 // Full rotation (year) is 4332.59 seconds (earth days)
 // One impulse per 0.4135344 days
