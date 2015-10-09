@@ -35,3 +35,14 @@ SynthDef(\Atmosphere_Spat,{
 	}
 ).play;
 )
+
+(
+SynthDef(\Atmospheric_wind,{
+	var x,y;
+	x = RLPF.ar(WhiteNoise.ar(0.2), abs(SinOsc.ar(0.001, 0, 660)), 1);
+	y = RLPF.ar(WhiteNoise.ar(0.2), abs(SinOsc.ar(0.015, 0, 220)), 1);
+	#x, y = Rotate2.ar(x, y, LFTri.kr(0.05 + 0.01*LFPulse.kr(0.01)));
+	Out.ar(0,[x,y])
+
+}).play;
+)
