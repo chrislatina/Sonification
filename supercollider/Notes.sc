@@ -22,6 +22,10 @@ Rings (Saturn) -- harmonic tones, stacked fifths. Planet pulses with time of day
 
 */
 
+/* DISTANCE */
+/* Map to time between the sun and the planet, x number of miles is y seconds */
+
+
 //Are these perceived very differently?
 {SinOsc.ar([220,441])}.play;
 {SinOsc.ar([441,220])}.play;
