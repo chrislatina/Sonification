@@ -3,7 +3,10 @@ a = VBAPSpeakerArray.new(2, [0, 90,  180, -90]); // 4 channel ring
 
 a.speakers[1].dump;
 b = a.loadToBuffer;
+StageLimiter.activate
+
 )
+
 
 
 /** Need to account for initial phase (starting year alignment?) **/
@@ -15,7 +18,7 @@ b = a.loadToBuffer;
 
 ~mercury = {|azi = 0, ele = 0, spr = 0|
 	var source;
-	source = RLPF.ar(SinOsc.ar(1149.05013193, 0, Decay2.ar(Impulse.ar(1/58.625), 58.625/2, 58.625)),1149.05013193/3);
+	source = BPF.ar(WhiteNoise.ar(Decay2.ar(Impulse.ar(1/58.625), 58.625/2, 58.625)),1149.05013193,0.005,1);
 
 	VBAP.ar(4, source, b.bufnum, LFSaw.kr(1/88, 0).range(-180, 180), ele, spr);
 }.scope;
@@ -27,7 +30,7 @@ b = a.loadToBuffer;
 
 ~venus = {|azi = 0, ele = 0, spr = 0|
 	var source;
-	source = RLPF.ar(SinOsc.ar(463.22563488898, 0, Decay2.ar(Impulse.ar(1/243), 243/2, 243)),463.22563488898/3);
+	source = BPF.ar(WhiteNoise.ar(Decay2.ar(Impulse.ar(1/243), 243/2, 243)),463.22563488898,0.005,1);
 
 	VBAP.ar(4, source, b.bufnum, LFSaw.kr(1/225, 0).range(-180, 180), ele, spr);
 }.scope;
@@ -38,8 +41,9 @@ b = a.loadToBuffer;
 
 ~earth = {|azi = 0, ele = 0, spr = 0|
 	var source;
-	source = RLPF.ar(SinOsc.ar(440, 0, Decay2.ar(Impulse.ar(0.973630831643
-), 0.973630831643/2, 0.973630831643)),440/3);
+	source = BPF.ar(BrownNoise.ar(Decay2.ar(Impulse.ar(0.973630831643
+), 0.973630831643/2, 0.973630831643)),440,0.01,1);
+
 
 	VBAP.ar(4, source, b.bufnum, LFSaw.kr(1/365, 0).range(-180, 180), ele, spr);
 }.scope;
@@ -51,7 +55,7 @@ b = a.loadToBuffer;
 
 ~mars = {|azi = 0, ele = 0, spr = 0|
 	var source;
-		source = RLPF.ar(SinOsc.ar(880, 0, Decay2.ar(Impulse.ar(1), 0.5, 1)),880/3);
+		source = BPF.ar(BrownNoise.ar(Decay2.ar(Impulse.ar(1), 0.5, 1)),880, 0.01,1);
 
 
 	VBAP.ar(4, source, b.bufnum, LFSaw.kr(1/686.971, 0).range(-180, 180), ele, spr);
@@ -62,7 +66,7 @@ b = a.loadToBuffer;
 // One impulse per 0.4135344 days
 ~jupiter = {|azi = 0, ele = 0, spr = 0|
 	var source;
-		source = RLPF.ar(SinOsc.ar(40.099906769, 0, Decay2.ar(Impulse.ar(2.4181785118723), 2.4181785118723/2, 2.4181785118723)),40);
+		source = BPF.ar(BrownNoise.ar(Decay2.ar(Impulse.ar(2.4181785118723), 2.4181785118723/2, 2.4181785118723)),40.099906769,0.05,1);
 
 
 	VBAP.ar(4, source, b.bufnum, LFSaw.kr(1/4332.59, 0).range(-180, 180), ele, spr);
