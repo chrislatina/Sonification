@@ -8,9 +8,6 @@ StageLimiter.activate
 )
 
 
-
-/** Need to account for initial phase (starting year alignment?) **/
-
 (
 //Mercury's diameter is 3032 = 7918/3032 * 440 = 1149.05013193 Hz
 //Full rotation (year) at 88 seconds
